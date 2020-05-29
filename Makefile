@@ -3,10 +3,7 @@ mutation:
 
 .PHONY: clean install mutation tests
 
-install:
-	pip install --editable .
-
-tests: install
+tests:
 	pytest --verbose
 
 clean:
