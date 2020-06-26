@@ -1,6 +1,8 @@
 import unittest
+import numpy as np
 from kanban_tools import *
 from random import seed
+
 
 class TestFiveNumbers(unittest.TestCase):
     def setUp(self):
@@ -8,10 +10,10 @@ class TestFiveNumbers(unittest.TestCase):
         Crea variables que se usarán en las pruebas
         """
         seed(1)
-        self.data=[1,2,3,4,5]
-        self_expected_output=[2,3,4]
-        self.data_101=[1:101]
-        self.expected_output_101=[96]
+        self.data = [1, 2, 3, 4, 5]
+        self_expected_output = [2, 3, 4]
+        self.data_101: np.array = np.arrange(101)
+        self.expected_output_101: np.array = np.array([3.5, 98.5])
 
     def test_quantiles_25_50_75(self):
         """
@@ -25,5 +27,6 @@ class TestFiveNumbers(unittest.TestCase):
         """
         self.assertEqual(ic_95(self.data_101), self.expected_output_101)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
