@@ -2,7 +2,8 @@ all: mutants
 
 .PHONY: all clean format install lint mutants tests
 
-repo = kanbantools
+repo = kanban_tools
+codecov_token = eb235d9d-86e8-4c08-a583-70d34f127ff1
 
 clean:
 	rm --force .mutmut-cache
@@ -28,4 +29,4 @@ mutants:
 
 tests: install
 	pytest --cov=${repo} --cov-report=xml --verbose && \
-	codecov --token=18f4c788-e1a1-442b-8e15-bd0e10fa8ff1
+	codecov --token=${codecov_token}
