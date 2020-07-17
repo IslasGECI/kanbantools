@@ -19,13 +19,17 @@ class TestFiveNumbers(unittest.TestCase):
         """
         Sacar los cuantiles 25, 50 y 75% del numero de tareas de clase 3
         """
-        np.testing.assert_array_equal(calculate_five_number.quantiles_25_50_75(self.data), self.expected_output)
+        np.testing.assert_array_equal(
+            calculate_five_number.quantiles_25_50_75(self.data), self.expected_output
+        )
 
     def test_ic_95(self):
         """
         Sacar los cuantiles 25, 50 y 75% del numero de tareas de clase 3
         """
-        np.testing.assert_array_equal(calculate_five_number.ic_95(self.data_101), self.expected_output_101)
+        np.testing.assert_array_equal(
+            calculate_five_number.ic_95(self.data_101), self.expected_output_101
+        )
 
 
 if __name__ == "__main__":
