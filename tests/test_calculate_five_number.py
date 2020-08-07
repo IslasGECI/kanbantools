@@ -9,7 +9,7 @@ data = [1, 2, 3, 4, 5]
 expected_output = [2, 3, 4]
 data_101: np.array = np.arange(101)
 expected_output_101: np.array = np.array([2.5, 97.5])
-expected_five_number_101: np.array([0, 25, 50, 75, 100])
+expected_five_number_101: np.array = np.array([0, 25, 50, 75, 100])
 d: dict = {"col1": [1, 2], "col2": [3, 4]}
 df: pd.DataFrame = pd.DataFrame(data=d)
 
@@ -42,4 +42,4 @@ def test_table_AED():
     assert number_of_rows == 2
     index = tabla_aed.columns
     number_of_columns = len(index)
-    assert number_of_columns == 9
+    assert number_of_columns == 2
