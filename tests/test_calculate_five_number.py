@@ -11,8 +11,20 @@ data_101: np.array = np.arange(101)
 expected_output_101: np.array = np.array([2.5, 97.5])
 expected_five_number_101: np.array = np.array([0, 25, 50, 75, 100])
 d: dict = {"col1": [1, 2, 5, 8, 7]}
-df: pd.DataFrame = pd.DataFrame(data=d)
-column_name_expected = ["Nombre_de_la_categoria", "Cantidad_de_datos", "Promedio", "Desviacion_estandar", "Minimo_de_la_muestra", "Cuartil_inferior", "Valor_medio", "Cuartil_superior","Maximo_de_la_muestra"]
+one_variable: pd.DataFrame = pd.DataFrame(data=d)
+d2: dict = {"col1": [1, 2, 5, 8, 7], "col2": [1, 1, 1, 1, 1]}
+two_variables: pd.DataFrame = pd.DataFrame(data=d2)
+column_name_expected = [
+    "Nombre_de_la_categoria",
+    "Cantidad_de_datos",
+    "Promedio",
+    "Desviacion_estandar",
+    "Minimo_de_la_muestra",
+    "Cuartil_inferior",
+    "Valor_medio",
+    "Cuartil_superior",
+    "Maximo_de_la_muestra",
+]
 
 
 def test_quantiles_25_50_75():
@@ -36,17 +48,30 @@ def test_five_number():
     )
 
 
-def test_table_AED():
+def test_dimension_table_AED():
     """
-    Revisa la forma y nombre de las columnas del data frame del AED
+    Revisa la forma del data frame del AED. Vamos a tener 9 columnas y una fila
+    por cada variable del data frame.
     """
-    tabla_aed = calculate_five_number.table_AED(df)
+    tabla_aed = calculate_five_number.table_AED(one_variable)
     index = tabla_aed.index
-    number_of_rows = len(index)
-    assert number_of_rows == 1
+    obtained_number_of_rows = len(index)
+    expected_number_of_rows = len(one_variable.columns)
+    assert expected_number_of_rows == obtained_number_of_rows
+
+    tabla_aed = calculate_five_number.table_AED(two_variables)
+    index = tabla_aed.index
+    obtained_number_of_rows = len(index)
+    expected_number_of_rows = len(two_variables.columns)
+    assert expected_number_of_rows == obtained_number_of_rows
+
     index = tabla_aed.columns
     number_of_columns = len(index)
     assert number_of_columns == 9
-    assert tabla_aed.ilog[0,0] == "col1"
+
+
+def test_names_table_AED():
+    tabla_aed = calculate_five_number.table_AED(one_variable)
+    assert tabla_aed.iloc[0, 0] == "col1"
     column_name_obtained = tabla_aed.columns.values.tolist()
     assert column_name_expected == column_name_obtained
