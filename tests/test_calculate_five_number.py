@@ -53,7 +53,6 @@ def assert_five_number(datos, expected_five_number):
     np.testing.assert_array_equal(obtained_five_number, expected_five_number)
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_dimension_table_AED():
     """
     Revisa la forma del data frame del AED. Vamos a tener 9 columnas y una fila
@@ -76,7 +75,6 @@ def test_dimension_table_AED():
     assert number_of_columns == 9
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_names_table_AED():
     tabla_aed = calculate_five_number.table_AED(one_variable)
     assert tabla_aed.iloc[0, 0] == "col1"
