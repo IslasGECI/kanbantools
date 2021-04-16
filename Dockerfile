@@ -6,6 +6,7 @@ RUN pip install --upgrade pip && pip install \
     black \
     codecov \
     flake8 \
+    ipykernel \ 
     mutmut \
     numpy \
     pandas \
