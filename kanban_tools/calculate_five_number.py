@@ -15,4 +15,17 @@ def five_number(data):
 
 
 def table_AED(data):
-    return pd.DataFrame({"A": ["col1"], "B": [2]})
+    columns_dict = {
+        "index": "Nombre_de_la_categoria",
+        "count": "Cantidad_de_datos",
+        "mean": "Promedio",
+        "std": "Desviacion_estandar",
+        "min": "Minimo_de_la_muestra",
+        "25%": "Cuartil_inferior",
+        "50%": "Valor_medio",
+        "75%": "Cuartil_superior",
+        "max": "Maximo_de_la_muestra",
+    }
+    summary_table = data.describe().T
+    summary_table.reset_index(inplace=True)
+    return summary_table.rename(columns = columns_dict)
