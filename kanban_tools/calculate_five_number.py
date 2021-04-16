@@ -28,4 +28,4 @@ def table_AED(data):
     }
     summary_table = data.describe().T
     summary_table.reset_index(inplace=True)
-    return summary_table.rename(columns = columns_dict)
+    return summary_table.rename(columns=columns_dict)
