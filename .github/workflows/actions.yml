@@ -18,7 +18,7 @@ jobs:
       run: docker build --tag islasgeci .
     - name: Verifica el formato
       run: docker run islasgeci make check
-    - name: Corre pruebas
+    - name: Corre pruebas y calcula cobertura
       run: docker run islasgeci make coverage
     - name: Evalua resistencia a mutaciones
       run: docker run islasgeci make mutants
