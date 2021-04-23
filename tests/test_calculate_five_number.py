@@ -2,7 +2,6 @@ import numpy as np
 from kanban_tools import calculate_five_number
 from random import seed
 import pandas as pd
-import pytest
 
 
 seed(1)

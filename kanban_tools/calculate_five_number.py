@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 
 def quantiles_25_50_75(data):
