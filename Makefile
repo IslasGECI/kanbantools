@@ -10,6 +10,7 @@ clean:
 	rm --recursive --force ${repo}.egg-info
 	rm --recursive --force ${repo}/__pycache__
 	rm --recursive --force tests/__pycache__
+	rm --recursive --force .pystet_cache/
 
 check:
 	black --check --line-length 100 ${repo}
