@@ -1,1 +1,1 @@
-from .calculate_five_number import *  # noqa
+from .calculate_five_numbers import *  # noqa

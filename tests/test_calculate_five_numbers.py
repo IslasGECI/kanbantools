@@ -1,5 +1,5 @@
 import numpy as np
-from kanban_tools import calculate_five_number
+from kanban_tools import calculate_five_numbers
 from random import seed
 import pandas as pd
 
@@ -29,7 +29,7 @@ def test_quantiles_25_50_75():
     Sacar los cuantiles 25, 50 y 75% del numero de tareas de clase 3
     """
     expected_output = [2, 3, 4]
-    np.testing.assert_array_equal(calculate_five_number.quantiles_25_50_75(data), expected_output)
+    np.testing.assert_array_equal(calculate_five_numbers.quantiles_25_50_75(data), expected_output)
 
 
 def test_ic_95():
@@ -37,19 +37,19 @@ def test_ic_95():
     Sacar los cuantiles intervalo de credibilidad del 95 porciento
     """
     expected_output_101: np.array = np.array([2.5, 97.5])
-    obtained_output_101: np.array = calculate_five_number.ic_95(data_101)
+    obtained_output_101: np.array = calculate_five_numbers.ic_95(data_101)
     np.testing.assert_array_equal(obtained_output_101, expected_output_101)
 
 
-def test_five_number():
-    assert_five_number(data, data)
-    expected_five_number_101: np.array = np.array([0, 25, 50, 75, 100])
-    assert_five_number(data_101, expected_five_number_101)
+def test_five_numbers():
+    assert_five_numbers(data, data)
+    expected_five_numbers_101: np.array = np.array([0, 25, 50, 75, 100])
+    assert_five_numbers(data_101, expected_five_numbers_101)
 
 
-def assert_five_number(datos, expected_five_number):
-    obtained_five_number: np.array = calculate_five_number.five_number(datos)
-    np.testing.assert_array_equal(obtained_five_number, expected_five_number)
+def assert_five_numbers(datos, expected_five_numbers):
+    obtained_five_numbers: np.array = calculate_five_numbers.five_numbers(datos)
+    np.testing.assert_array_equal(obtained_five_numbers, expected_five_numbers)
 
 
 def test_dimension_table_AED():
@@ -57,13 +57,13 @@ def test_dimension_table_AED():
     Revisa la forma del data frame del AED. Vamos a tener 9 columnas y una fila
     por cada variable del data frame.
     """
-    tabla_aed = calculate_five_number.table_AED(one_variable)
+    tabla_aed = calculate_five_numbers.table_AED(one_variable)
     index = tabla_aed.index
     obtained_number_of_rows = len(index)
     expected_number_of_rows = len(one_variable.columns)
     assert expected_number_of_rows == obtained_number_of_rows
 
-    tabla_aed = calculate_five_number.table_AED(two_variables)
+    tabla_aed = calculate_five_numbers.table_AED(two_variables)
     index = tabla_aed.index
     obtained_number_of_rows = len(index)
     expected_number_of_rows = len(two_variables.columns)
@@ -75,7 +75,7 @@ def test_dimension_table_AED():
 
 
 def test_names_table_AED():
-    tabla_aed = calculate_five_number.table_AED(one_variable)
+    tabla_aed = calculate_five_numbers.table_AED(one_variable)
     assert tabla_aed.iloc[0, 0] == "col1"
     column_name_obtained = tabla_aed.columns.values.tolist()
     assert column_name_expected == column_name_obtained

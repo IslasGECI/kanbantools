@@ -9,7 +9,7 @@ def ic_95(data):
     return np.percentile(data, [2.5, 97.5])
 
 
-def five_number(data):
+def five_numbers(data):
     return np.percentile(data, [0, 25, 50, 75, 100])
 
 
