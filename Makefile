@@ -42,7 +42,7 @@ lint:
 	pylint ${repo}
 	pylint tests
 
-mutants:
+mutants: install
 	mutmut run --paths-to-mutate ${repo}
 
 tests: install
