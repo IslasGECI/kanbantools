@@ -6,5 +6,5 @@ setup(
     version="0.1.0",
     packages=["kanban_tools"],
     author="Ciencia de Datos • GECI",
-    python_requires='>=3.6'
+    python_requires='>=3'
 )
