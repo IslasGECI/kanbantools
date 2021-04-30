@@ -8,8 +8,6 @@ RUN pip install --upgrade pip && pip install \
     flake8 \
     ipykernel \ 
     mutmut \
-    numpy \
-    pandas \
     pylint \
     pylint-fail-under \
     pytest-cov \
