@@ -2,9 +2,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="kanbantools",
+    name="kanban_tools",
     version="0.1.0",
     packages=["kanban_tools"],
-    author="Fernando Alvarez, Nepo Rojas y Maritza Bello",
+    author="Ciencia de Datos • GECI",
     python_requires='>=3.6'
 )
