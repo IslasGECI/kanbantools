@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3
 WORKDIR /workdir
 COPY . .
 RUN pip install --upgrade pip && pip install \
@@ -6,9 +6,8 @@ RUN pip install --upgrade pip && pip install \
     black \
     codecov \
     flake8 \
+    ipykernel \ 
     mutmut \
-    numpy \
-    pandas \
     pylint \
     pylint-fail-under \
     pytest-cov \
