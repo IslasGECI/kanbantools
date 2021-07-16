@@ -6,7 +6,7 @@ RUN pip install --upgrade pip && pip install \
     black \
     codecov \
     flake8 \
-    ipykernel \ 
+    ipykernel \
     mutmut \
     pylint \
     pylint-fail-under \
