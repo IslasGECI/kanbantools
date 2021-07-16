@@ -10,5 +10,5 @@ RUN pip install --upgrade pip && pip install \
     mutmut \
     pylint \
     pylint-fail-under \
-    pytest-cov \
-    pytest==5.0.1
+    pytest \
+    pytest-cov
