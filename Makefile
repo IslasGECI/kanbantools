@@ -21,7 +21,7 @@ check:
 	flake8 --max-line-length 100 tests
 
 clean:
-	rm --force --recursive .pystet_cache/
+	rm --force --recursive .pytest_cache/
 	rm --force --recursive ${repo}.egg-info
 	rm --force --recursive ${repo}/__pycache__
 	rm --force --recursive tests/__pycache__
