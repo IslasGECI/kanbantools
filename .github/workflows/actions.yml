@@ -3,11 +3,11 @@ on:
   pull_request:
     branches:
       - develop
-      - master
+      - main
   push:
     branches:
       - develop
-      - master
+      - main
 jobs:
   actions:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
       run: docker build --tag islasgeci .
     - name: Verifica el formato
       run: docker run islasgeci make check
-    - name: Corre pruebas y calcula cobertura
+    - name: Corre pruebas y evalúa cobertura
       run: docker run islasgeci make coverage
-    - name: Evalua resistencia a mutaciones
+    - name: Evalúa resistencia a mutaciones
       run: docker run islasgeci make mutants
