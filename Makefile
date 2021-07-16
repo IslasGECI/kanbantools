@@ -1,4 +1,4 @@
-all: mutants
+all: check coverage mutants
 
 .PHONY: \
 		all \
@@ -35,6 +35,7 @@ clean:
 	rm --force --recursive ${repo}/__pycache__
 	rm --force --recursive tests/__pycache__
 	rm --force .mutmut-cache
+	rm --force coverage.xml
 
 coverage: install
 	pytest --cov=${repo} --cov-report=xml --verbose && \
