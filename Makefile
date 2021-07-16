@@ -46,7 +46,7 @@ format:
 	black --line-length 100 tests
 
 install:
-	pip install --editable .
+	pip install .
 
 linter:
 	$(call lint, ${module})
