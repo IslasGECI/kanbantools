@@ -14,6 +14,15 @@ all: mutants
 repo = kanban_tools
 codecov_token = eb235d9d-86e8-4c08-a583-70d34f127ff1
 
+define lint
+	pylint \
+        --disable=bad-continuation \
+        --disable=missing-class-docstring \
+        --disable=missing-function-docstring \
+        --disable=missing-module-docstring \
+        ${1}
+endef
+
 check:
 	black --check --line-length 100 ${repo}
 	black --check --line-length 100 tests
@@ -38,9 +47,9 @@ format:
 install:
 	pip install --editable .
 
-lint:
-	pylint ${repo}
-	pylint tests
+linter:
+	$(call lint, ${repo})
+	$(call lint, tests)
 
 mutants: install
 	mutmut run --paths-to-mutate ${repo}
