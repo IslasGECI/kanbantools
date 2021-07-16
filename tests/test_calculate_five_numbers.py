@@ -57,13 +57,13 @@ def test_dimension_table_AED():
     Revisa la forma del data frame del AED. Vamos a tener 9 columnas y una fila
     por cada variable del data frame.
     """
-    tabla_aed = calculate_five_numbers.table_AED(one_variable)
+    tabla_aed = calculate_five_numbers.table_exploratory_data_analysis(one_variable)
     index = tabla_aed.index
     obtained_number_of_rows = len(index)
     expected_number_of_rows = len(one_variable.columns)
     assert expected_number_of_rows == obtained_number_of_rows
 
-    tabla_aed = calculate_five_numbers.table_AED(two_variables)
+    tabla_aed = calculate_five_numbers.table_exploratory_data_analysis(two_variables)
     index = tabla_aed.index
     obtained_number_of_rows = len(index)
     expected_number_of_rows = len(two_variables.columns)
@@ -75,7 +75,7 @@ def test_dimension_table_AED():
 
 
 def test_names_table_AED():
-    tabla_aed = calculate_five_numbers.table_AED(one_variable)
+    tabla_aed = calculate_five_numbers.table_exploratory_data_analysis(one_variable)
     assert tabla_aed.iloc[0, 0] == "col1"
     column_name_obtained = tabla_aed.columns.values.tolist()
     assert column_name_expected == column_name_obtained
