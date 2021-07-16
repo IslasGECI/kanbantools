@@ -6,9 +6,9 @@ RUN pip install --upgrade pip && pip install \
     black \
     codecov \
     flake8 \
-    ipykernel \ 
+    ipykernel \
     mutmut \
     pylint \
     pylint-fail-under \
-    pytest-cov \
-    pytest==5.0.1
+    pytest \
+    pytest-cov

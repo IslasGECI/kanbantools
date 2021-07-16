@@ -13,7 +13,7 @@ def five_numbers(data):
     return np.percentile(data, [0, 25, 50, 75, 100])
 
 
-def table_AED(data):
+def table_exploratory_data_analysis(data):
     columns_dict = {
         "index": "Nombre_de_la_categoria",
         "count": "Cantidad_de_datos",
